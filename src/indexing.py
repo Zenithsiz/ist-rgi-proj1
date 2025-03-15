@@ -30,17 +30,17 @@ def token_counts_nltk(doc: Cord19Doc, do_stemming: bool) -> Counter[str]:
 	return counter
 
 
-DocId = int
+DocIdx = int
 
 
 @dataclass
 class Posting:
-	doc_idx: DocId
+	doc_idx: DocIdx
 	occurrences: int
 
 
 InvertedIndex = dict[str, list[Posting]]
-DocWordCount = dict[DocId, int]
+DocWordCount = dict[DocIdx, int]
 
 
 @dataclass
@@ -62,6 +62,7 @@ def indexing(d: Cord19Docs, do_stemming: bool) -> tuple[Index, float, int]:
 		doc_word_count[doc_idx] = len(token_counts)
 		for word in token_counts:
 			inverted_index[word].append(Posting(doc_idx, token_counts[word]))
+
 	print()
 	duration = time.time() - start_time
 	space = sys.getsizeof(inverted_index)
