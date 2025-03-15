@@ -1,3 +1,10 @@
 {
-  "cSpell.words": ["scikit"]
+  "cSpell.words": [
+    "lemmatize",
+    "lemmatizer",
+    "scikit",
+    "stopword",
+    "stopwords",
+    "trec"
+  ]
 }

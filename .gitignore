@@ -1,2 +1,6 @@
 # Python
-.venv
+.venv/
+__pycache__/
+
+# Resources
+resources/
