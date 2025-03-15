@@ -5,7 +5,7 @@ from ir_datasets.datasets.cord19 import Cord19Docs
 from ir_datasets.formats.trec import TrecQuery
 
 import util
-from indexing import InvertedIndex, Posting, get_inverted_index
+from indexing import InvertedIndex, Posting, get_index
 
 DATASET: Cord19Docs = ir_datasets.load("cord19/trec-covid")
 
@@ -21,8 +21,8 @@ def boolean_query(query: str, k: int, inverted_index: InvertedIndex, do_stemming
 		def cur_posting(self) -> Posting:
 			return self.postings[self.cur_idx]
 
-		def cur_doc_id(self) -> int:
-			return self.cur_posting().doc_id
+		def cur_doc_idx(self) -> int:
+			return self.cur_posting().doc_idx
 
 	try:
 		query_posting_idxs = [
@@ -38,23 +38,23 @@ def boolean_query(query: str, k: int, inverted_index: InvertedIndex, do_stemming
 	):
 		# If the first posting is the same for all, we found a common document, so add it
 		if all(
-			postings.postings[postings.cur_idx].doc_id
-			== query_posting_idxs[0].cur_doc_id()
+			postings.postings[postings.cur_idx].doc_idx
+			== query_posting_idxs[0].cur_doc_idx()
 			for postings in query_posting_idxs[1:]
 		):
-			docs.append(query_posting_idxs[0].cur_doc_id())
+			docs.append(query_posting_idxs[0].cur_doc_idx())
 			for posting in query_posting_idxs:
 				posting.cur_idx += 1
 
 		# Otherwise, remove the one with the smallest doc index
 		else:
 			smallest_idx = None
-			smallest_doc_id = None
+			smallest_doc_idx = None
 			for posting_idx, posting in enumerate(query_posting_idxs):
-				posting_doc_id = posting.cur_doc_id()
-				if smallest_doc_id is None or posting_doc_id < smallest_doc_id:
+				posting_doc_idx = posting.cur_doc_idx()
+				if smallest_doc_idx is None or posting_doc_idx < smallest_doc_idx:
 					smallest_idx = posting_idx
-					smallest_doc_id = posting_doc_id
+					smallest_doc_idx = posting_doc_idx
 			assert smallest_idx is not None
 
 			query_posting_idxs[smallest_idx].cur_idx += 1
@@ -63,9 +63,9 @@ def boolean_query(query: str, k: int, inverted_index: InvertedIndex, do_stemming
 
 
 if __name__ == "__main__":
-	inverted_index = get_inverted_index()
+	index = get_index()
 	for query in DATASET.queries_iter():
 		query: TrecQuery
-		docs = boolean_query(query.title, 10, inverted_index, do_stemming=False)
+		docs = boolean_query(query.title, 10, index.inverted_index, do_stemming=False)
 
 		print(f"{repr(query.title)}: {docs}")
