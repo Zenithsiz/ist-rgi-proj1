@@ -7,7 +7,7 @@ from ir_datasets.datasets.cord19 import Cord19Docs
 from ir_datasets.formats.trec import TrecQuery
 
 import util
-from indexing import DocIdx, Index, get_index
+from indexing import DocId, Index, Posting, get_index
 
 DATASET: Cord19Docs = ir_datasets.load("cord19/trec-covid")
 
@@ -25,10 +25,10 @@ def ranking(
 	model=RetrievalModel.TF_IDF,
 	k1=1.5,
 	b=0.75,
-) -> list[tuple[DocIdx, float]]:
+) -> list[tuple[DocId, float]]:
 	query_tokens = util.tokenize(query, do_stemming)
 
-	doc_scores = {doc_idx: 0 for doc_idx in index.doc_word_count}
+	doc_scores = {doc_id: 0 for doc_id in index.doc_word_count}
 
 	doc_word_avg = sum(index.doc_word_count.values()) / len(index.doc_word_count)
 
@@ -39,6 +39,7 @@ def ranking(
 		idf = math.log10(len(index.inverted_index) / len(index.inverted_index[token]))
 
 		for posting in index.inverted_index[token]:
+			posting: Posting
 			match model:
 				case RetrievalModel.TF_IDF:
 					tf = 1 + math.log10(posting.occurrences)
@@ -54,17 +55,17 @@ def ranking(
 								1
 								- b
 								+ b
-								* index.doc_word_count[posting.doc_idx]
+								* index.doc_word_count[posting.doc_id]
 								/ doc_word_avg
 							)
 						)
 					)
 
-			doc_scores[posting.doc_idx] += score
+			doc_scores[posting.doc_id] += score
 
 	docs = [
-		(doc_idx, doc_scores[doc_idx])
-		for doc_idx in heapq.nlargest(p, doc_scores, doc_scores.get)
+		(doc_id, doc_scores[doc_id])
+		for doc_id in heapq.nlargest(p, doc_scores, doc_scores.get)
 	]
 	return docs
 
@@ -78,5 +79,5 @@ if __name__ == "__main__":
 		)
 
 		print(f"{repr(query.title)}:")
-		for doc_idx, score in docs:
-			print(f"- {doc_idx}: {score}")
+		for doc_id, score in docs:
+			print(f"- {doc_id}: {score}")

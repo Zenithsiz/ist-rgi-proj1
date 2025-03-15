@@ -2,6 +2,8 @@
   "cSpell.words": [
     "lemmatize",
     "lemmatizer",
+    "qrel",
+    "qrels",
     "scikit",
     "stopword",
     "stopwords",

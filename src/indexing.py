@@ -30,17 +30,18 @@ def token_counts_nltk(doc: Cord19Doc, do_stemming: bool) -> Counter[str]:
 	return counter
 
 
-DocIdx = int
+DocId = str
 
 
 @dataclass
 class Posting:
-	doc_idx: DocIdx
+	doc_idx: int
+	doc_id: DocId
 	occurrences: int
 
 
 InvertedIndex = dict[str, list[Posting]]
-DocWordCount = dict[DocIdx, int]
+DocWordCount = dict[DocId, int]
 
 
 @dataclass
@@ -56,12 +57,15 @@ def indexing(d: Cord19Docs, do_stemming: bool) -> tuple[Index, float, int]:
 	start_time = time.time()
 	total_docs = d.docs_count()
 	for doc_idx, doc in enumerate(d.docs_iter()):
+		doc: Cord19Doc
 		print(f"Processing document: {doc_idx:6}/{total_docs}", end="\r")
 
 		token_counts = token_counts_nltk(doc, do_stemming)
-		doc_word_count[doc_idx] = len(token_counts)
+		doc_word_count[doc.doc_id] = len(token_counts)
 		for word in token_counts:
-			inverted_index[word].append(Posting(doc_idx, token_counts[word]))
+			inverted_index[word].append(
+				Posting(doc_idx, doc.doc_id, token_counts[word])
+			)
 
 	print()
 	duration = time.time() - start_time
@@ -82,10 +86,10 @@ def print_index(index: Index):
 	print("Document word count:")
 	items_total = len(index.doc_word_count)
 	items_shown = 10
-	for doc_idx, word_count in itertools.islice(
+	for doc_id, word_count in itertools.islice(
 		index.doc_word_count.items(), items_shown
 	):
-		print(f"\tDocument: {doc_idx} → {word_count}")
+		print(f"\tDocument: {repr(doc_id)} → {word_count}")
 	print(f"\t... ({items_total - items_shown} more)")
 
 

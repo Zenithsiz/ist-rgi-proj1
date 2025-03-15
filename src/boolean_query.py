@@ -5,12 +5,12 @@ from ir_datasets.datasets.cord19 import Cord19Docs
 from ir_datasets.formats.trec import TrecQuery
 
 import util
-from indexing import InvertedIndex, Posting, get_index
+from indexing import Index, Posting, get_index
 
 DATASET: Cord19Docs = ir_datasets.load("cord19/trec-covid")
 
 
-def boolean_query(query: str, k: int, inverted_index: InvertedIndex, do_stemming: bool):
+def boolean_query(query: str, k: int, index: Index, do_stemming: bool):
 	query_tokens = util.tokenize(query, do_stemming)
 
 	@dataclass
@@ -21,12 +21,12 @@ def boolean_query(query: str, k: int, inverted_index: InvertedIndex, do_stemming
 		def cur_posting(self) -> Posting:
 			return self.postings[self.cur_idx]
 
-		def cur_doc_idx(self) -> int:
+		def cur_doc_idx(self) -> str:
 			return self.cur_posting().doc_idx
 
 	try:
 		query_posting_idxs = [
-			QueryPostings(inverted_index[token], 0) for token in query_tokens
+			QueryPostings(index.inverted_index[token], 0) for token in query_tokens
 		]
 	except KeyError:
 		return []
@@ -66,6 +66,6 @@ if __name__ == "__main__":
 	index = get_index()
 	for query in DATASET.queries_iter():
 		query: TrecQuery
-		docs = boolean_query(query.title, 10, index.inverted_index, do_stemming=False)
+		docs = boolean_query(query.title, 10, index, do_stemming=False)
 
 		print(f"{repr(query.title)}: {docs}")
