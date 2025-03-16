@@ -58,15 +58,16 @@ def indexing(d: Cord19Docs, do_stemming: bool) -> tuple[Index, float, int]:
 	total_docs = d.docs_count()
 	for doc_idx, doc in enumerate(d.docs_iter()):
 		doc: Cord19Doc
-		print(f"Processing document: {doc_idx:6}/{total_docs}", end="\r")
+		print(f"\rProcessing document: {doc_idx:6}/{total_docs} ({doc.doc_id})", end="")
+
+		if doc.doc_id in doc_word_count:
+			print(f"\nIgnoring duplicate document {doc.doc_id}")
+			continue
 
 		token_counts = token_counts_nltk(doc, do_stemming)
 		doc_word_count[doc.doc_id] = len(token_counts)
-		for word in token_counts:
-			inverted_index[word].append(
-				Posting(doc_idx, doc.doc_id, token_counts[word])
-			)
-
+		for word, word_count in token_counts.items():
+			inverted_index[word].append(Posting(doc_idx, doc.doc_id, word_count))
 	print()
 	duration = time.time() - start_time
 	space = sys.getsizeof(inverted_index)
