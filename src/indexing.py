@@ -50,6 +50,29 @@ class Index:
 	doc_word_count: DocWordCount
 
 
+def size_of_index(index: Index) -> int:
+	return (
+		sys.getsizeof(index)
+		+ sys.getsizeof(index.inverted_index)
+		+ sum(
+			sys.getsizeof(term)
+			+ sys.getsizeof(postings)
+			+ sum(
+				sys.getsizeof(posting.doc_idx)
+				+ sys.getsizeof(posting.doc_id)
+				+ sys.getsizeof(posting.occurrences)
+				for posting in postings
+			)
+			for term, postings in index.inverted_index.items()
+		)
+		+ sys.getsizeof(index.doc_word_count)
+		+ sum(
+			sys.getsizeof(doc_id) + sys.getsizeof(occurrences)
+			for doc_id, occurrences in index.doc_word_count.items()
+		)
+	)
+
+
 def indexing(d: Cord19Docs, do_stemming: bool) -> tuple[Index, float, int]:
 	inverted_index = defaultdict(list)
 	doc_word_count = {}
@@ -69,10 +92,13 @@ def indexing(d: Cord19Docs, do_stemming: bool) -> tuple[Index, float, int]:
 		for word, word_count in token_counts.items():
 			inverted_index[word].append(Posting(doc_idx, doc.doc_id, word_count))
 	print()
-	duration = time.time() - start_time
-	space = sys.getsizeof(inverted_index)
 
-	return (Index(dict(inverted_index), doc_word_count), duration, space)
+	index = Index(dict(inverted_index), doc_word_count)
+
+	duration = time.time() - start_time
+	space = size_of_index(index)
+
+	return (index, duration, space)
 
 
 def print_index(index: Index):
