@@ -10,7 +10,7 @@ from ranking import RetrievalModel, ranking
 DATASET: Cord19Docs = ir_datasets.load("cord19/trec-covid")
 
 if __name__ == "__main__":
-	query_relevant_docs: dict[int, dict[DocId, int]] = {}
+	query_relevant_docs: dict[str, dict[DocId, int]] = {}
 	queries = [query for query in DATASET.queries_iter()]
 	for qrel in DATASET.qrels_iter():
 		qrel: TrecQrel
@@ -32,15 +32,24 @@ if __name__ == "__main__":
 			p,
 			index,
 			do_stemming=False,
-			model=RetrievalModel.BM25,
+			model=RetrievalModel.TF_IDF,
 		)
 
-		precision = sum(relevant_docs.get(doc_id) in [1, 2] for doc_id, _ in docs) / p
-		map += precision
-		print(f"- P      : {precision}")
+		def precision_at(k):
+			return (
+				sum((relevant_docs.get(doc_id) or 0) > 0 for doc_id, _ in docs[:k]) / k
+			)
 
-		p10 = sum(relevant_docs.get(doc_id) in [1, 2] for doc_id, _ in docs[:10]) / 10
-		print(f"- P@10   : {p10}")
+		precision = precision_at(p)
+		print(f"- P      : {precision:.2f}")
+
+		map += sum(
+			precision_at(k) * (docs[k][0] in relevant_docs)
+			for k in range(1, min(len(relevant_docs), p))
+		) / min(len(relevant_docs), p)
+
+		p10 = precision_at(10)
+		print(f"- P@10   : {p10:.2f}")
 
 		dcg = sum(
 			(relevant_docs.get(doc_id) or 0) / math.log2(idx + 2)
