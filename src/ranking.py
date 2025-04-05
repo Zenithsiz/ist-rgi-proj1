@@ -71,7 +71,7 @@ def ranking(
 
 
 if __name__ == "__main__":
-	index = get_index()
+	index = get_index(DATASET)
 	for query in DATASET.queries_iter():
 		query: TrecQuery
 		docs = ranking(

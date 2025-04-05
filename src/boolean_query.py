@@ -63,7 +63,7 @@ def boolean_query(query: str, k: int, index: Index, do_stemming: bool):
 
 
 if __name__ == "__main__":
-	index = get_index()
+	index = get_index(DATASET)
 	for query in DATASET.queries_iter():
 		query: TrecQuery
 		docs = boolean_query(query.title, 10, index, do_stemming=False)

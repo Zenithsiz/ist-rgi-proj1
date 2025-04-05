@@ -13,7 +13,6 @@ from ir_datasets.datasets.cord19 import Cord19Doc, Cord19Docs
 
 import util
 
-DATASET: Cord19Docs = ir_datasets.load("cord19/trec-covid")
 for download in ["stopwords", "punkt_tab", "wordnet"]:
 	nltk.download(download)
 
@@ -107,7 +106,7 @@ def print_index(index: Index):
 	print(f"\t... ({items_total - items_shown} more)")
 
 
-def get_index() -> Index:
+def get_index(d: Cord19Docs) -> Index:
 	path = Path("resources/index.pkl.gz")
 
 	# If the cached inverted index exists, load it
@@ -125,7 +124,7 @@ def get_index() -> Index:
 			index,
 			index_duration,
 			index_space,
-		) = indexing(DATASET, do_stemming=False)
+		) = indexing(d, do_stemming=False)
 		print(f"Index: {index_duration:.2f}s, {index_space / (1024 * 1024):.3} MiB")
 
 		with gzip.open(path, "wb") as f:
@@ -135,5 +134,6 @@ def get_index() -> Index:
 
 
 if __name__ == "__main__":
-	index = get_index()
+	DATASET: Cord19Docs = ir_datasets.load("cord19/trec-covid")
+	index = get_index(DATASET)
 	print_index(index)

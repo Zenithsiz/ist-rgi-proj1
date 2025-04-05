@@ -22,7 +22,7 @@ if __name__ == "__main__":
 		if qrel.relevance > 0:
 			query_relevant_docs[query][qrel.doc_id] = qrel.relevance
 
-	index = get_index()
+	index = get_index(DATASET)
 	map = 0
 	for query, relevant_docs in query_relevant_docs.items():
 		print(f"{repr(query)}:")
