@@ -73,6 +73,10 @@ def indexing(d: Cord19Docs, do_stemming: bool) -> tuple[Index, float, int]:
 			print(f"\nIgnoring duplicate document {doc.doc_id}")
 			continue
 
+		if len(doc.abstract) == 0:
+			print(f"\nIgnoring document with no abstract {doc.doc_id}")
+			continue
+
 		token_counts = util.token_counts_nltk(doc, do_stemming)
 		doc_word_count[doc.doc_id] = len(token_counts)
 		for word, word_count in token_counts.items():
