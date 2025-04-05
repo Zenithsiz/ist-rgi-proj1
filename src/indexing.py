@@ -3,7 +3,7 @@ import itertools
 import pickle
 import sys
 import time
-from collections import Counter, defaultdict
+from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -16,19 +16,6 @@ import util
 DATASET: Cord19Docs = ir_datasets.load("cord19/trec-covid")
 for download in ["stopwords", "punkt_tab", "wordnet"]:
 	nltk.download(download)
-
-
-def token_counts_nltk(doc: Cord19Doc, do_stemming: bool) -> Counter[str]:
-	counter = Counter()
-
-	tokens_title = nltk.sent_tokenize(doc.title)
-	tokens_abstract = nltk.sent_tokenize(doc.abstract)
-	for sentence in [*tokens_title, *tokens_abstract]:
-		tokens = util.tokenize(sentence, do_stemming)
-		counter.update(tokens)
-
-	return counter
-
 
 DocId = str
 
@@ -87,7 +74,7 @@ def indexing(d: Cord19Docs, do_stemming: bool) -> tuple[Index, float, int]:
 			print(f"\nIgnoring duplicate document {doc.doc_id}")
 			continue
 
-		token_counts = token_counts_nltk(doc, do_stemming)
+		token_counts = util.token_counts_nltk(doc, do_stemming)
 		doc_word_count[doc.doc_id] = len(token_counts)
 		for word, word_count in token_counts.items():
 			inverted_index[word].append(Posting(doc_idx, doc.doc_id, word_count))

@@ -1,7 +1,9 @@
 import re
 import string
+from collections import Counter
 
 import nltk
+from ir_datasets.datasets.cord19 import Cord19Doc
 
 STOPWORDS = nltk.corpus.stopwords.words("english")
 STOPWORD_REGEX = re.compile(r"([+\-]?\d+\.\d+)|([+\-]?\d+\/[+\-]?\d+)|([+\-]?\d+)")
@@ -34,3 +36,15 @@ def tokenize(sentence: str, do_stemming: bool) -> list[str]:
 		tokens = [LEMMATIZER.lemmatize(tok) for tok in tokens]
 
 	return tokens
+
+
+def token_counts_nltk(doc: Cord19Doc, do_stemming: bool) -> Counter[str]:
+	counter = Counter()
+
+	tokens_title = nltk.sent_tokenize(doc.title)
+	tokens_abstract = nltk.sent_tokenize(doc.abstract)
+	for sentence in [*tokens_title, *tokens_abstract]:
+		tokens = tokenize(sentence, do_stemming)
+		counter.update(tokens)
+
+	return counter
