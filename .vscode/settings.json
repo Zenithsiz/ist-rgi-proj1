@@ -1,9 +1,12 @@
 {
   "cSpell.words": [
+    "dbscan",
     "getsizeof",
     "idcg",
     "lemmatize",
     "lemmatizer",
+    "medoid",
+    "medoids",
     "qrel",
     "qrels",
     "scikit",
