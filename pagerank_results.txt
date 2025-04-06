@@ -1,0 +1,400 @@
+[nltk_data] Downloading package stopwords to
+[nltk_data]     /home/zenithsiz/Uni/Y6P3/RGI/proj/.venv/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /home/zenithsiz/Uni/Y6P3/RGI/proj/.venv/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /home/zenithsiz/Uni/Y6P3/RGI/proj/.venv/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+Loading cached index
+Processing term: 161093/161094
+Took 14 iterations to reach similarity threshold (2.397e-11)
+'coronavirus origin':
+- 4czigfev: 0.035170
+- u1uvnlk2: 0.035144
+- lmkz9kuy: 0.034920
+- mv3crcsh: 0.034901
+- pbqocrrk: 0.034772
+- 4zc8ivef: 0.034771
+- 6zji8w1u: 0.034746
+- idc29nlc: 0.034723
+- jjoxin5s: 0.034715
+- llv3cvdr: 0.034711
+Processing term: 161093/161094
+Took 13 iterations to reach similarity threshold (8.163e-11)
+'coronavirus response to weather changes':
+- j5gjipdn: 0.034656
+- p604vvbi: 0.034638
+- a1nrdktb: 0.034476
+- ym44s4oc: 0.034462
+- mrglohd6: 0.034442
+- qs90rv05: 0.034424
+- vaygaqe5: 0.034394
+- f6igj0pd: 0.034361
+- se2iachh: 0.034303
+- 9rpoll7y: 0.034163
+Processing term: 161093/161094
+Took 15 iterations to reach similarity threshold (2.85e-11)
+'coronavirus immunity':
+- sm122szu: 0.034702
+- 5nyoxono: 0.034698
+- fhm8abxp: 0.034603
+- km0b1z64: 0.034574
+- k406jf98: 0.034526
+- jiz0oyx8: 0.034472
+- 48ednoqc: 0.034445
+- o864avb6: 0.034428
+- sorfrjj8: 0.034425
+- 6zofjqj4: 0.034372
+Processing term: 161093/161094
+Took 16 iterations to reach similarity threshold (9.187e-11)
+'how do people die from the coronavirus':
+- rhg5pbsq: 0.035821
+- fy4w7xz8: 0.035738
+- gmpjo9uz: 0.035661
+- 84uzizf2: 0.035652
+- yuxb2jz9: 0.035613
+- afzjx2ci: 0.035612
+- 7he8entt: 0.035579
+- iyv86437: 0.035572
+- rhziowqv: 0.035568
+- qlpvt29o: 0.035542
+Processing term: 161093/161094
+Took 19 iterations to reach similarity threshold (4.914e-11)
+'animal models of COVID-19':
+- mqj071gp: 0.035065
+- mgp38mdz: 0.034980
+- 6fp8nly0: 0.034830
+- 2w0zr9c0: 0.034802
+- x4t0vosz: 0.034701
+- xzsdflcg: 0.034573
+- 75u57fw1: 0.034553
+- u46mhs34: 0.034521
+- ce7x3cku: 0.034516
+- sq7tokbx: 0.034459
+Processing term: 161093/161094
+Took 11 iterations to reach similarity threshold (2.867e-11)
+'coronavirus test rapid testing':
+- njt7vyiy: 0.033806
+- moz22sur: 0.033794
+- nufzukak: 0.033775
+- g5neg8wx: 0.033732
+- naezhdp3: 0.033725
+- k5u6tdkg: 0.033703
+- 6cj539uw: 0.033679
+- dfjh7qyh: 0.033650
+- c2lljdi7: 0.033639
+- mqc90n4d: 0.033628
+Processing term: 161093/161094
+Took 12 iterations to reach similarity threshold (2.783e-11)
+'serological tests for coronavirus':
+- g693adjd: 0.034289
+- oh45ifkx: 0.034112
+- bsu74y23: 0.034086
+- jjoxin5s: 0.034061
+- 6q90bayx: 0.034036
+- 4hlvrfeh: 0.033952
+- xysa7dzh: 0.033885
+- m5xdth1t: 0.033868
+- j0z20rx5: 0.033790
+- uy3s6443: 0.033787
+Processing term: 161093/161094
+Took 19 iterations to reach similarity threshold (5.982e-11)
+'coronavirus under reporting':
+- 6q90bayx: 0.036673
+- 5gsbtfag: 0.036016
+- 6mef38eo: 0.035885
+- zmaw9lbz: 0.035808
+- gy35gsl2: 0.035768
+- 8zwsi4nk: 0.035729
+- 9qv11m4f: 0.035588
+- yiy2y2x3: 0.035556
+- z0qzgu5m: 0.035546
+- qzy4k1q8: 0.035536
+Processing term: 161093/161094
+Took 17 iterations to reach similarity threshold (7.181e-11)
+'coronavirus in Canada':
+- 6q90bayx: 0.036402
+- 53l0yw16: 0.036015
+- 5gsbtfag: 0.035871
+- zmaw9lbz: 0.035770
+- llv3cvdr: 0.035666
+- gy35gsl2: 0.035636
+- qsxnirja: 0.035589
+- 8zwsi4nk: 0.035581
+- 6mef38eo: 0.035522
+- 4npowkkz: 0.035514
+Processing term: 161093/161094
+Took 11 iterations to reach similarity threshold (8.309e-11)
+'coronavirus social distancing impact':
+- 5242ns8i: 0.034200
+- hit4kza8: 0.034080
+- 7v5xl1s3: 0.034078
+- 9hp2gx3t: 0.034048
+- prpooezh: 0.033953
+- qn8rfoew: 0.033940
+- 1z4vbldd: 0.033937
+- ghcbttba: 0.033919
+- vpodtbjk: 0.033906
+- cmiegygs: 0.033901
+Processing term: 161093/161094
+Took 11 iterations to reach similarity threshold (7.265e-11)
+'coronavirus hospital rationing':
+- 06giqn03: 0.033572
+- awdtetdw: 0.033443
+- n7p9jj0c: 0.033430
+- 734i0uob: 0.033392
+- wh3btcd4: 0.033372
+- lad31adx: 0.033360
+- shew7sfw: 0.033339
+- 4707pec6: 0.033339
+- mi3ngq6g: 0.033329
+- cngpsxcs: 0.033318
+Processing term: 161093/161094
+Took 19 iterations to reach similarity threshold (9.482e-11)
+'coronavirus quarantine':
+- 6q90bayx: 0.036196
+- 5gsbtfag: 0.035870
+- zmaw9lbz: 0.035806
+- 6mef38eo: 0.035744
+- gy35gsl2: 0.035610
+- u1claajf: 0.035570
+- 535lw99y: 0.035555
+- 8zwsi4nk: 0.035461
+- z0qzgu5m: 0.035454
+- qsxnirja: 0.035437
+Processing term: 161093/161094
+Took 12 iterations to reach similarity threshold (7.77e-11)
+'how does coronavirus spread':
+- 39qkxqe2: 0.034069
+- 87d7gzgb: 0.033800
+- ko0gp2nd: 0.033780
+- 0qaoam29: 0.033695
+- yh96792l: 0.033684
+- u8vtglyz: 0.033628
+- ixzymz8a: 0.033590
+- hki4acid: 0.033542
+- ooj9yqbx: 0.033517
+- ntra3jhs: 0.033457
+Processing term: 161093/161094
+Took 16 iterations to reach similarity threshold (9.073e-11)
+'coronavirus super spreaders':
+- t7sn9ffh: 0.036359
+- 29wzpwvr: 0.035501
+- zmaw9lbz: 0.035322
+- qsxnirja: 0.035301
+- 6q90bayx: 0.035286
+- yk9af4aj: 0.035229
+- 5gsbtfag: 0.035111
+- z0qzgu5m: 0.035089
+- j0z20rx5: 0.035023
+- 18bvwxci: 0.035001
+Processing term: 161093/161094
+Took 17 iterations to reach similarity threshold (6.449e-11)
+'coronavirus outside body':
+- 75u57fw1: 0.037222
+- hgau3922: 0.036908
+- zg17f7bd: 0.036841
+- qn8rfoew: 0.036758
+- vkhg20he: 0.036700
+- 6blcrkat: 0.036567
+- i5n5cx2p: 0.036449
+- 470r0ies: 0.036332
+- uo839gvc: 0.036326
+- 0rlotyz3: 0.036285
+Processing term: 161093/161094
+Took 14 iterations to reach similarity threshold (2.694e-11)
+'how long does coronavirus survive on surfaces':
+- jd1vu41o: 0.035506
+- 0qvnisq6: 0.035191
+- wgrhywrn: 0.035061
+- ooj9yqbx: 0.034855
+- a1c2zppi: 0.034824
+- 6sgi0um0: 0.034786
+- 61wibso4: 0.034751
+- 8trsa6o6: 0.034747
+- 2chmny8w: 0.034702
+- 9i798wge: 0.034693
+Processing term: 161093/161094
+Took 14 iterations to reach similarity threshold (9.034e-11)
+'coronavirus clinical trials':
+- nq0qe8qf: 0.034855
+- 61tskn6x: 0.034580
+- tx5cql1a: 0.034508
+- k8ixv4aa: 0.034411
+- wpo9xt8j: 0.034361
+- q6h46bjn: 0.034341
+- rq9epv2o: 0.034274
+- iwuuehiq: 0.034259
+- 8rg2x73m: 0.034239
+- yy3bennu: 0.034229
+Processing term: 161093/161094
+Took 18 iterations to reach similarity threshold (4.423e-11)
+'masks prevent coronavirus':
+- 9vtvtob7: 0.035684
+- mn596x1p: 0.035682
+- 75u57fw1: 0.035642
+- xvba5mqq: 0.035595
+- naxyw03d: 0.035551
+- bp6st31f: 0.035463
+- 1cpoo3b5: 0.035404
+- wsgb5s6z: 0.035394
+- xy5vtjiz: 0.035297
+- 7yo5hvhr: 0.035294
+Processing term: 161093/161094
+Took 16 iterations to reach similarity threshold (2.908e-11)
+'what alcohol sanitizer kills coronavirus':
+- 6q90bayx: 0.036475
+- z0qzgu5m: 0.036087
+- 18bvwxci: 0.035874
+- zmaw9lbz: 0.035807
+- 5gsbtfag: 0.035693
+- gy35gsl2: 0.035594
+- 9vtvtob7: 0.035573
+- 4npowkkz: 0.035543
+- 9h1n9j8l: 0.035530
+- 0lsniwyv: 0.035457
+Processing term: 161093/161094
+Took 15 iterations to reach similarity threshold (7.425e-11)
+'coronavirus and ACE inhibitors':
+- iptnwr45: 0.034850
+- dg1fe7ft: 0.034831
+- 7soclp7j: 0.034714
+- putf9vjh: 0.034695
+- 69ewjvf1: 0.034680
+- 4chf7kc9: 0.034649
+- utfeiviy: 0.034577
+- dsysiefx: 0.034567
+- nadhhe5k: 0.034538
+- jj2u35z4: 0.034503
+Processing term: 161093/161094
+Took 12 iterations to reach similarity threshold (4.919e-11)
+'coronavirus mortality':
+- ond1ziu5: 0.034544
+- bxz9278z: 0.034284
+- jiz0oyx8: 0.034201
+- d2uvdnii: 0.034190
+- v321m7g9: 0.034150
+- sxznxse5: 0.034147
+- idyp3t0j: 0.034131
+- p443vmx9: 0.034070
+- suo9qiym: 0.033995
+- ebr623rm: 0.033975
+Processing term: 161093/161094
+Took 16 iterations to reach similarity threshold (2.884e-11)
+'coronavirus heart impacts':
+- qn8rfoew: 0.035821
+- javgi3gr: 0.035257
+- 99sbhbuo: 0.035199
+- 9y9gjyby: 0.035176
+- 0vjs2w3l: 0.035146
+- iyv86437: 0.035111
+- f22m6ah4: 0.035066
+- 3qgzulgj: 0.035057
+- cjs9zust: 0.035020
+- 138odey2: 0.035016
+Processing term: 161093/161094
+Took 19 iterations to reach similarity threshold (4.872e-11)
+'coronavirus hypertension':
+- 6q90bayx: 0.036716
+- qsxnirja: 0.036356
+- 5gsbtfag: 0.036349
+- 4npowkkz: 0.036185
+- llv3cvdr: 0.036087
+- z0qzgu5m: 0.036084
+- zmaw9lbz: 0.036080
+- j0z20rx5: 0.036048
+- gy35gsl2: 0.036039
+- 18bvwxci: 0.036025
+Processing term: 161093/161094
+Took 19 iterations to reach similarity threshold (4.098e-11)
+'coronavirus diabetes':
+- 6q90bayx: 0.036841
+- z0qzgu5m: 0.036271
+- 5gsbtfag: 0.036189
+- 4npowkkz: 0.036009
+- 18bvwxci: 0.035932
+- sdr7dkbg: 0.035916
+- 0lsniwyv: 0.035888
+- qsxnirja: 0.035866
+- 4e2j89uy: 0.035854
+- 535lw99y: 0.035778
+Processing term: 161093/161094
+Took 15 iterations to reach similarity threshold (3.781e-11)
+'coronavirus biomarkers':
+- 6q90bayx: 0.036279
+- z0qzgu5m: 0.035934
+- 5gsbtfag: 0.035728
+- gy35gsl2: 0.035599
+- 4npowkkz: 0.035563
+- 18bvwxci: 0.035493
+- qsxnirja: 0.035424
+- llv3cvdr: 0.035348
+- 9qsukr5l: 0.035341
+- 6mef38eo: 0.035275
+Processing term: 161093/161094
+Took 12 iterations to reach similarity threshold (8.257e-11)
+'coronavirus early symptoms':
+- 8u9tz2pz: 0.034145
+- itu39mln: 0.033900
+- gm1e9j80: 0.033871
+- ntra3jhs: 0.033828
+- oaa3gtb2: 0.033826
+- 4q6d048r: 0.033799
+- kep2dgaw: 0.033709
+- 0lsniwyv: 0.033686
+- l9wclb0q: 0.033664
+- uxpwxc3u: 0.033652
+Processing term: 161093/161094
+Took 13 iterations to reach similarity threshold (8.15e-11)
+'coronavirus asymptomatic':
+- z0qzgu5m: 0.035324
+- fat4ldy8: 0.035298
+- 1kzmjvq0: 0.035184
+- 4npowkkz: 0.035171
+- 6mef38eo: 0.035168
+- zmaw9lbz: 0.035151
+- pkqv8cmr: 0.035065
+- uux7uale: 0.035046
+- qsxnirja: 0.035024
+- lq4tcyh4: 0.035014
+Processing term: 161093/161094
+Took 17 iterations to reach similarity threshold (3.325e-11)
+'coronavirus hydroxychloroquine':
+- t7sn9ffh: 0.036621
+- 29wzpwvr: 0.035726
+- zmaw9lbz: 0.035434
+- 6q90bayx: 0.035434
+- qsxnirja: 0.035412
+- yk9af4aj: 0.035298
+- 5gsbtfag: 0.035271
+- fy4w7xz8: 0.035142
+- 18bvwxci: 0.035140
+- j0z20rx5: 0.035139
+Processing term: 161093/161094
+Took 11 iterations to reach similarity threshold (5.273e-11)
+'coronavirus drug repurposing':
+- lqniqui0: 0.033754
+- 6q90bayx: 0.033750
+- nq0qe8qf: 0.033669
+- ex7vdi4v: 0.033607
+- g15qw1ky: 0.033541
+- xsi3hbzs: 0.033530
+- f99nd3dx: 0.033484
+- j80hnhpb: 0.033461
+- xvba5mqq: 0.033455
+- oh45ifkx: 0.033449
+Processing term: 161093/161094
+Took 16 iterations to reach similarity threshold (8.496e-11)
+'coronavirus remdesivir':
+- t7sn9ffh: 0.036520
+- 29wzpwvr: 0.035651
+- zmaw9lbz: 0.035291
+- qsxnirja: 0.035286
+- 6q90bayx: 0.035266
+- yk9af4aj: 0.035179
+- 5gsbtfag: 0.035090
+- j0z20rx5: 0.035013
+- 18bvwxci: 0.034963
+- llv3cvdr: 0.034934

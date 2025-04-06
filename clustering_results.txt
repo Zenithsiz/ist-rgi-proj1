@@ -1,0 +1,280 @@
+Loading cached index
+Processing term: 161093/161094
+Calculating distance matrix (20000x20000)
+Running dbscan on distance matrix (eps=0.75, min_samples=5)
+Found 45 clusters...
+Ignoring 10430 outliers during clustering...
+0: 9351 documents (virus, respiratory, assay, infection, viral, detection, pathogen, method, clinical, human)
+    Median: None
+    Medoid document: 6trvh5lg
+    Cohesion: 851494.0068005046
+    Separation: 1051.4375937157076
+    Silhouette: 0.251816890241637
+1: 8 documents (infection, carv, respiratory, virus, p, recipient, viral, transplant, mortality, pneumonia)
+    Median: None
+    Medoid document: w7p0et1l
+    Cohesion: 541.3921961979902
+    Separation: 357.60502080405814
+    Silhouette: 0.2255483307616324
+2: 5 documents (cold, common, nasal, symptom, virus, carrageenan, spray, patient, trial, iota-carrageenan)
+    Median: None
+    Medoid document: yvsusriy
+    Cohesion: 785.1691454882487
+    Separation: 551.5188626854482
+    Silhouette: 0.21605439252351663
+3: 7 documents (eps, sidoides, pelargonium, cell, respiratory, trial, extract, infection, effect, treatment)
+    Median: None
+    Medoid document: o9zf35fb
+    Cohesion: 1188.0190934325474
+    Separation: 922.9217432866474
+    Silhouette: 0.26104951616566635
+4: 3 documents (irak-m, macrophage, m., tb, infection, cell, lung, hrv-16, mers-cov, human)
+    Median: None
+    Medoid document: x7a4nsq0
+    Cohesion: 430.78483939885587
+    Separation: 436.6360085658872
+    Silhouette: 0.26340935722826275
+5: 5 documents (lycorine, cell, protein, infection, treatment, virus, using, viral, activity, mouse)
+    Median: None
+    Medoid document: a1cuq29o
+    Cohesion: 1086.299705761479
+    Separation: 550.0750475619379
+    Silhouette: 0.16862315470887076
+6: 5 documents (mongoose, lynx, epidemic, carnivore, virus, specie, disease, viral, andalusia, parvovirus)
+    Median: None
+    Medoid document: ymphhmrk
+    Cohesion: 1318.5229422737684
+    Separation: 600.3227651363512
+    Silhouette: 0.14546690510663698
+7: 5 documents (disaster, health, hospital, study, service, infection, system, respiratory, response, participant)
+    Median: None
+    Medoid document: atg93t3p
+    Cohesion: 300.08216271998566
+    Separation: 156.7564295382981
+    Silhouette: 0.1893452909659521
+8: 5 documents (oxymatrine, group, lung, cell, p, protein, significantly, expression, injury, effect)
+    Median: None
+    Medoid document: 1ijxilpb
+    Cohesion: 669.6104806473961
+    Separation: 339.406703739885
+    Silhouette: 0.12449721977561454
+9: 5 documents (tw, strain, paper, horse, virus, china, iad, ml, published, airway)
+    Median: None
+    Medoid document: xge6mah1
+    Cohesion: 690.9058832196392
+    Separation: 422.19771347691756
+    Silhouette: 0.17089882137128892
+10: 4 documents (procalcitonin, network, poultry, contact, bacterial, infection, pathogen, ng/ml, tracing, trading)
+    Median: None
+    Medoid document: 3abdaphv
+    Cohesion: 448.2355998102269
+    Separation: 209.54668668727032
+    Silhouette: 0.11651826105853269
+11: 5 documents (bnov, bovine, calf, strain, diarrhea, pathogen, diarrheic, norovirus, china, vp1)
+    Median: None
+    Medoid document: aesixn73
+    Cohesion: 520.6463439835272
+    Separation: 437.7844621142489
+    Silhouette: 0.2627242943091592
+12: 3 documents (copper, virus, surface, viral, sampler, infectious, bioaerosol, alloy, human, ptfe)
+    Median: None
+    Medoid document: a1jlwvju
+    Cohesion: 434.99682946236913
+    Separation: 444.159163849445
+    Silhouette: 0.27840058184482686
+13: 6 documents (calf, bcv, serum, antibody, iga, cow, milk, igm, finding, response)
+    Median: None
+    Medoid document: 4yxl2jhr
+    Cohesion: 347.3694809510704
+    Separation: 184.752246829468
+    Silhouette: 0.19871843996506078
+14: 6 documents (outbreak, virus, infection, disease, viral, mers-cov, protein, nosocomial, infectious, south)
+    Median: None
+    Medoid document: bkreu1s2
+    Cohesion: 300.410966258542
+    Separation: 148.42725808323385
+    Silhouette: 0.19490982915202712
+15: 4 documents (hpev1, cell, strain, human, type, genome, hpev, hpev3, virus, infection)
+    Median: None
+    Medoid document: yhed5s98
+    Cohesion: 814.1030181402361
+    Separation: 722.6996094620214
+    Silhouette: 0.2760052401376625
+16: 6 documents (radix, bupleuri, saikosaponins, bupleurum, effect, ss, study, chaihu, also, review)
+    Median: None
+    Medoid document: 48f7kqbd
+    Cohesion: 812.1091092274274
+    Separation: 558.8312034015569
+    Silhouette: 0.2329173524505248
+17: 5 documents (dna, cell, vaccination, immune, response, tumor, antitumor, effect, crt/e7, e7-specific)
+    Median: None
+    Medoid document: f944lv4t
+    Cohesion: 878.6950750001781
+    Separation: 857.1742079969465
+    Silhouette: 0.2838071206243349
+18: 5 documents (ga, extract, effect, acid, root, licorice, glabra, cell, glycyrrhiza, g.)
+    Median: None
+    Medoid document: lxdbwd5n
+    Cohesion: 830.9655263708813
+    Separation: 540.473797962532
+    Silhouette: 0.21835810046603088
+19: 5 documents (faecium, virus, e., cell, probiotic, infection, pig, piglet, effect, group)
+    Median: None
+    Medoid document: gyb9mjb5
+    Cohesion: 937.9577277274951
+    Separation: 620.6510104087242
+    Silhouette: 0.2125264118823445
+20: 5 documents (axis, ace2, -mas, ang-, ra, level, system, receptor, ace2-ang-, ang)
+    Median: None
+    Medoid document: ns41qvgj
+    Cohesion: 860.7336458057342
+    Separation: 570.2135014475718
+    Silhouette: 0.20076991166422004
+21: 5 documents (peptide, activity, scorpion, hsv-1, viral, virus, antiviral, infection, potential, drug)
+    Median: None
+    Medoid document: qy39a6x8
+    Cohesion: 742.084729983065
+    Separation: 419.4213828530906
+    Silhouette: 0.1679580227194296
+22: 5 documents (ov, cancer, tumor, virus, therapy, oncolytic, combination, cell, spread, treatment)
+    Median: None
+    Medoid document: qr1gsmqw
+    Cohesion: 832.3519416434763
+    Separation: 457.83733280112875
+    Silhouette: 0.1820343343791629
+23: 4 documents (tio, activity, titanium, photocatalytic, property, substrate, antibacterial, dioxide, c, np)
+    Median: None
+    Medoid document: dzu93rua
+    Cohesion: 1031.8491237154776
+    Separation: 803.5220309429793
+    Silhouette: 0.25072293777714316
+24: 6 documents (dpp-4, inhibitor, effect, glp-1, dipeptidyl, disease, autophagy, role, kidney, linagliptin)
+    Median: None
+    Medoid document: b3o0vtob
+    Cohesion: 1013.6367502974072
+    Separation: 614.5289719046452
+    Silhouette: 0.20344063495074852
+25: 3 documents (lsectin, virus, lectin, dc-sign, infection, cell, dc-signr, jev, ligand, inflammatory)
+    Median: None
+    Medoid document: vk61gekw
+    Cohesion: 310.052565338347
+    Separation: 251.52232327206494
+    Silhouette: 0.15145204654553926
+26: 5 documents (virus, site, protein, human, host, sias, sia-binding, binding, activity, sia)
+    Median: None
+    Medoid document: 6l97ofgh
+    Cohesion: 404.53004521358866
+    Separation: 265.8992797944504
+    Silhouette: 0.22336109634388154
+27: 5 documents (zikv, diii, fusion, protein, virus, antibody, vaccine, cell, envelope, domain)
+    Median: None
+    Medoid document: vql8e2j3
+    Cohesion: 480.7796259987822
+    Separation: 325.78234497719404
+    Silhouette: 0.22396774300505484
+28: 5 documents (cd147, interaction, protein, cell, cypa, extracellular, expression, mmp-9, cyclophilins, activity)
+    Median: None
+    Medoid document: llabjn8x
+    Cohesion: 592.1925988111659
+    Separation: 327.6557538886096
+    Silhouette: 0.1997685539560619
+29: 4 documents (tsl-1, influenza, virus, h1n1, cell, effect, extract, toona, sinensis, study)
+    Median: None
+    Medoid document: 78dznsqw
+    Cohesion: 529.0828680934609
+    Separation: 414.8334995917114
+    Silhouette: 0.24122738113629372
+30: 4 documents (analysis, infection, infant, rsv, nasopharyngeal, bronchiolitis, viral, response, mers-cov, load)
+    Median: None
+    Medoid document: 8i7mmpbd
+    Cohesion: 326.85722644695255
+    Separation: 182.20695413598958
+    Silhouette: 0.2094191613163978
+31: 6 documents (gc376, protease, cat, inhibitor, virus, antiviral, treatment, feline, fcv, assay)
+    Median: None
+    Medoid document: 7hty6li9
+    Cohesion: 553.5568447072162
+    Separation: 366.82406941401194
+    Silhouette: 0.23042287636114725
+32: 7 documents (ort, broiler, ibv, virus, chicken, infection, group, sample, sonali, infectious)
+    Median: None
+    Medoid document: o4sh6wqo
+    Cohesion: 1380.1399411800219
+    Separation: 508.5806802427799
+    Silhouette: 0.10129809622832844
+33: 6 documents (fmt, fecal, microbiota, treatment, pig, donor, healthy, transplantation, dog, disease)
+    Median: None
+    Medoid document: slcvbzt9
+    Cohesion: 514.7867820099247
+    Separation: 327.58998453197023
+    Silhouette: 0.18328297125062135
+34: 5 documents (pcp, treatment, patient, hand, hygiene, pandemic, child, study, pneumonia, primary)
+    Median: None
+    Medoid document: 1wptx49j
+    Cohesion: 728.0989507731215
+    Separation: 460.0509485813553
+    Silhouette: 0.20970500961308072
+35: 4 documents (cholesterol, infection, cell, type, porcine, fcov, virus, viral, membrane, mβcd)
+    Median: None
+    Medoid document: 0d6w8xyd
+    Cohesion: 261.6020598065751
+    Separation: 262.54298548051247
+    Silhouette: 0.33535712816811747
+36: 5 documents (ibdv, virus, c-src, replication, cell, mg132, inhibitor, disease, inhibition, infection)
+    Median: None
+    Medoid document: vdt88wzy
+    Cohesion: 586.4131321180919
+    Separation: 248.65672907923982
+    Silhouette: 0.11447856993317881
+37: 5 documents (cx43, infection, gap, junction, protein, cns, mhv, connexin, cell, expression)
+    Median: None
+    Medoid document: x3s7ypre
+    Cohesion: 1082.4386470605039
+    Separation: 868.6544309558622
+    Silhouette: 0.24878045621596065
+38: 5 documents (virus, infection, bhv1, expression, bovine, e2, protein, element, vector, herpesvirus)
+    Median: None
+    Medoid document: cnnansqd
+    Cohesion: 274.9060586698534
+    Separation: 202.81521924551524
+    Silhouette: 0.19559680609294156
+39: 5 documents (hexachlorophene, drug, compound, protease, cell, inhibitor, β-catenin, sars-cov, study, anti-coronavirus)
+    Median: None
+    Medoid document: 79v0hdi9
+    Cohesion: 512.867579365114
+    Separation: 344.6642905544309
+    Silhouette: 0.2056742138088919
+40: 3 documents (aki, p, col−, patient, ncip, cell, in-hospital, mortality, ecmo, calf)
+    Median: None
+    Medoid document: dy28eo89
+    Cohesion: 245.71408064257622
+    Separation: 184.11265176952824
+    Silhouette: 0.22501411989359998
+41: 5 documents (rna, protein, virus, mrna, −, site, cellular, end, mouse, sequence)
+    Median: None
+    Medoid document: iy3y27g4
+    Cohesion: 351.55944460976707
+    Separation: 180.09382710844463
+    Silhouette: 0.14164447938300423
+42: 5 documents (dog, donor, marrow, graft, engraftment, cell, tbi, patient, dla-identical, gy)
+    Median: None
+    Medoid document: gfoca4q4
+    Cohesion: 788.6446573525246
+    Separation: 645.2596172544147
+    Silhouette: 0.2445830385717646
+43: 5 documents (transition, emergence, mobility, stage, epidemiologic, research, health, theory, risk, article)
+    Median: None
+    Medoid document: 5gwifm5b
+    Cohesion: 381.15822034616576
+    Separation: 171.83370027419275
+    Silhouette: 0.17832132182288274
+44: 5 documents (vaccine, human, chadox1, rvf, virus, niv, efficacy, adenovirus, challenge, development)
+    Median: None
+    Medoid document: 2rnvmbnz
+    Cohesion: 379.8250218070541
+    Separation: 287.6303576006457
+    Silhouette: 0.2689389394640613
+Total cohesion: 879996.1454683727
+Total separation: 19806.11040300893
+Total error: 899802.2558713816
+Total silhouette: 0.20952923025202444
