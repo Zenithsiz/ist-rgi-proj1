@@ -92,7 +92,9 @@ def clustering(d: Cord19Docs, do_stemming: bool) -> list[Cluster]:
 			continue
 
 		clusters[label].append(doc_matrix_idx)
-	print(f"Found {len(clusters)} clusters...")
+	print(
+		f"Found {len(clusters)} clusters, largest cluster is {max(map(len, clusters.values()))}..."
+	)
 	print(f"Ignoring {ignored_docs} outliers during clustering...")
 
 	overall_doc_mean = (
