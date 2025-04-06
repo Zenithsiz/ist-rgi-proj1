@@ -4,6 +4,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 
 import ir_datasets
+import numpy as np
 import sklearn.metrics.pairwise
 import sklearn.preprocessing
 from ir_datasets.datasets.cord19 import Cord19Docs
@@ -17,11 +18,21 @@ DATASET: Cord19Docs = ir_datasets.load("cord19/trec-covid/round1")
 
 
 @dataclass
+class Evaluation:
+	cohesion: float
+	separation: float
+	silhouette: float
+
+
+@dataclass
 class Cluster:
+	median: None
 	medoid_doc_id: int
 
 	doc_idxs: list[int]
 	topics: list[str]
+
+	evaluation: Evaluation
 
 
 def clustering(d: Cord19Docs, do_stemming: bool) -> list[Cluster]:
@@ -114,7 +125,24 @@ def clustering(d: Cord19Docs, do_stemming: bool) -> list[Cluster]:
 		).most_common(10)
 		topics = [topic for topic, _ in topics]
 
-		return Cluster(medoid_doc_ids[0], doc_ids, topics)
+		# TODO: Median
+		median = None
+
+		mean = np.sum(
+			[doc_matrix.getcol(doc_matrix_idx) for doc_matrix_idx in doc_matrix_idxs]
+		).toarray() / len(doc_matrix_idxs)
+		cohesion = sum(
+			np.linalg.norm(doc_matrix.getcol(doc_matrix_idx) - mean)
+			for doc_matrix_idx in doc_matrix_idxs
+		)
+
+		# TODO: Separation & Silhouette
+		separation = 0.0
+		silhouette = 0.0
+
+		evaluation = Evaluation(cohesion, separation, silhouette)
+
+		return Cluster(median, medoid_doc_ids[0], doc_ids, topics, evaluation)
 
 	return [process_cluster(doc_matrix_idxs) for doc_matrix_idxs in clusters.values()]
 
@@ -123,4 +151,24 @@ if __name__ == "__main__":
 	clusters = clustering(DATASET, do_stemming=False)
 
 	for cluster_idx, cluster in enumerate(clusters):
-		print(f"{cluster_idx}: {len(cluster.doc_idxs)} ({cluster.topics})")
+		print(
+			f"{cluster_idx}: {len(cluster.doc_idxs)} documents ({', '.join(cluster.topics)})"
+		)
+		print(f"\tMedian: {cluster.median}")
+		print(f"\tMedoid document: {cluster.medoid_doc_id}")
+		print(f"\tCohesion: {cluster.evaluation.cohesion}")
+		print(f"\tSeparation: {cluster.evaluation.separation}")
+
+	total_cohesion = sum(cluster.evaluation.cohesion for cluster in clusters)
+	print(f"Total cohesion: {total_cohesion}")
+
+	total_separation = sum(cluster.evaluation.separation for cluster in clusters)
+	print(f"Total separation: {total_separation}")
+
+	total_error = total_cohesion + total_separation
+	print(f"Total error: {total_error}")
+
+	total_silhouette = sum(cluster.evaluation.silhouette for cluster in clusters) / len(
+		clusters
+	)
+	print(f"Total silhouette: {total_silhouette}")
