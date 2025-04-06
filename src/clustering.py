@@ -26,7 +26,7 @@ class Evaluation:
 
 @dataclass
 class Cluster:
-	median: None
+	mean: list[float]
 	medoid_doc_id: int
 
 	doc_idxs: list[int]
@@ -152,8 +152,6 @@ def clustering(d: Cord19Docs, do_stemming: bool) -> list[Cluster]:
 		).most_common(10)
 		topics = [topic for topic, _ in topics]
 
-		# TODO: Median (replace with mean if we don't find anything in the meantime)
-		median = None
 		mean = cluster_means[cluster_idx]
 		cohesion = sum(
 			np.linalg.norm(doc_matrix[doc_matrix_idx, :] - mean) ** 2
@@ -186,7 +184,7 @@ def clustering(d: Cord19Docs, do_stemming: bool) -> list[Cluster]:
 
 		evaluation = Evaluation(cohesion, separation, silhouette)
 
-		return Cluster(median, medoid_doc_ids[0], doc_ids, topics, evaluation)
+		return Cluster(mean, medoid_doc_ids[0], doc_ids, topics, evaluation)
 
 	return [
 		process_cluster(cluster_idx, cluster_doc_matrix_idxs)
@@ -201,11 +199,16 @@ if __name__ == "__main__":
 		print(
 			f"{cluster_idx}: {len(cluster.doc_idxs)} documents ({', '.join(cluster.topics)})"
 		)
-		print(f"\tMedian: {cluster.median}")
+		print(f"\tMean: {cluster.mean}")
 		print(f"\tMedoid document: {cluster.medoid_doc_id}")
 		print(f"\tCohesion: {cluster.evaluation.cohesion}")
 		print(f"\tSeparation: {cluster.evaluation.separation}")
 		print(f"\tSilhouette: {cluster.evaluation.silhouette}")
+
+	mean = sum((cluster.mean for cluster in clusters[1:]), clusters[0].mean) / len(
+		clusters
+	)
+	print(f"Mean: {mean}")
 
 	total_cohesion = sum(cluster.evaluation.cohesion for cluster in clusters)
 	print(f"Total cohesion: {total_cohesion}")
