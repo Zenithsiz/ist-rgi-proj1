@@ -92,19 +92,44 @@ def clustering(d: Cord19Docs, do_stemming: bool) -> list[Cluster]:
 			continue
 
 		clusters[label].append(doc_matrix_idx)
+	print(f"Found {len(clusters)} clusters...")
 	print(f"Ignoring {ignored_docs} outliers during clustering...")
 
-	def process_cluster(doc_matrix_idxs: list[int]) -> Cluster:
+	overall_doc_mean = (
+		sum(
+			(doc_matrix[doc_matrix_idx, :] for doc_matrix_idx in range(total_docs)),
+			start=np.zeros(shape=(1, total_terms)),
+		)
+		/ total_docs
+	)
+
+	cluster_means = [
+		sum(
+			(
+				doc_matrix[doc_matrix_idx, :]
+				for doc_matrix_idx in cluster_doc_matrix_idxs
+			),
+			start=np.zeros(shape=(1, total_terms)),
+		)
+		/ len(cluster_doc_matrix_idxs)
+		for cluster_doc_matrix_idxs in clusters.values()
+	]
+
+	def process_cluster(
+		cluster_idx: int, cluster_doc_matrix_idxs: list[int]
+	) -> Cluster:
 		# Get the doc ids for all of the matrix indexes
-		doc_ids = [doc_matrix_ids[doc_matrix_idx] for doc_matrix_idx in doc_matrix_idxs]
+		doc_ids = [
+			doc_matrix_ids[doc_matrix_idx] for doc_matrix_idx in cluster_doc_matrix_idxs
+		]
 
 		# Then calculate the medoid and topics from the 10 largest medoids and top 10 words.
 		medoids_dists = [
 			sum(
 				doc_dist_matrix[doc_matrix_idx, other_doc_idx]
-				for other_doc_idx in doc_matrix_idxs
+				for other_doc_idx in cluster_doc_matrix_idxs
 			)
-			for doc_matrix_idx in doc_matrix_idxs
+			for doc_matrix_idx in cluster_doc_matrix_idxs
 		]
 		medoid_cluster_doc_idx = heapq.nsmallest(
 			10,
@@ -125,26 +150,46 @@ def clustering(d: Cord19Docs, do_stemming: bool) -> list[Cluster]:
 		).most_common(10)
 		topics = [topic for topic, _ in topics]
 
-		# TODO: Median
+		# TODO: Median (replace with mean if we don't find anything in the meantime)
 		median = None
-
-		mean = np.sum(
-			[doc_matrix.getcol(doc_matrix_idx) for doc_matrix_idx in doc_matrix_idxs]
-		).toarray() / len(doc_matrix_idxs)
+		mean = cluster_means[cluster_idx]
 		cohesion = sum(
-			np.linalg.norm(doc_matrix.getcol(doc_matrix_idx) - mean)
-			for doc_matrix_idx in doc_matrix_idxs
+			np.linalg.norm(doc_matrix[doc_matrix_idx, :] - mean) ** 2
+			for doc_matrix_idx in cluster_doc_matrix_idxs
 		)
 
-		# TODO: Separation & Silhouette
-		separation = 0.0
-		silhouette = 0.0
+		separation = (
+			len(cluster_doc_matrix_idxs) * np.linalg.norm(mean - overall_doc_mean) ** 2
+		)
+
+		def calc_silhouette(doc_matrix_idx: int) -> float:
+			a = np.linalg.norm(doc_matrix[doc_matrix_idx, :] - mean)
+			b = min(
+				np.linalg.norm(
+					doc_matrix[doc_matrix_idx, :] - cluster_means[other_cluster_idx]
+				)
+				for other_cluster_idx in range(len(clusters))
+				if other_cluster_idx != cluster_idx
+			)
+
+			if a < b:
+				return 1 - a / b
+			else:
+				return b / a - 1
+
+		silhouette = sum(
+			calc_silhouette(doc_matrix_idx)
+			for doc_matrix_idx in cluster_doc_matrix_idxs
+		) / len(cluster_doc_matrix_idxs)
 
 		evaluation = Evaluation(cohesion, separation, silhouette)
 
 		return Cluster(median, medoid_doc_ids[0], doc_ids, topics, evaluation)
 
-	return [process_cluster(doc_matrix_idxs) for doc_matrix_idxs in clusters.values()]
+	return [
+		process_cluster(cluster_idx, cluster_doc_matrix_idxs)
+		for cluster_idx, cluster_doc_matrix_idxs in enumerate(clusters.values())
+	]
 
 
 if __name__ == "__main__":
@@ -158,6 +203,7 @@ if __name__ == "__main__":
 		print(f"\tMedoid document: {cluster.medoid_doc_id}")
 		print(f"\tCohesion: {cluster.evaluation.cohesion}")
 		print(f"\tSeparation: {cluster.evaluation.separation}")
+		print(f"\tSilhouette: {cluster.evaluation.silhouette}")
 
 	total_cohesion = sum(cluster.evaluation.cohesion for cluster in clusters)
 	print(f"Total cohesion: {total_cohesion}")
